@@ -272,6 +272,7 @@ void locationUpdate()
 
   // TX
   APRS_sendLoc(APRS_comment, strlen(APRS_comment));
+  ialtitude_feet = 0;
 
   #ifdef BLINK_LEDS
   // read TX LED pin and wait till TX has finished. LibAPRS has TX_LED defined on (PB5), i use LED_BUILTIN on my version as TX_LED
