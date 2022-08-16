@@ -33,17 +33,18 @@ SoftwareSerial GPSSerial(GPS_RX_PIN, GPS_TX_PIN);
 //#define PPT_PIN 3
 
 #define BLINK_LEDS //enable to blink status LEDs
-#define BIKE_RIDE //enable to use the bike optimized SmartBeaconing options
+// #define BIKE_RIDE //enable to use the bike optimized SmartBeaconing options
 // GPS_FIX_LED A3/D17
 #define GPS_FIX_LED A3
 
 // APRS settings
 char APRS_CALLSIGN[] = "KF0JOU";
 const int APRS_SSID = 7;
-char APRS_SYMBOL = 'b'; // 'b' for Bike, '>' for Car
+char APRS_SYMBOL = '>'; // 'b' for Bike, '>' for Car
+char comment[] = "DIY Arduino APRS Tracker"; // Comment to show
 char TOCALL[] = "APZMDM";
-#define PREAMBLE 500 //350
-#define TAIL 150 //50
+const int PREAMBLE = 500; //350
+const int TAIL = 150; //50
 #define REPORT_ALT //uncomment to report altitude. NOT GUARENTEED when #define NEO6M is disabled.
                     //Will only report if valid altitude is given
 
@@ -236,7 +237,7 @@ void locationUpdate()
   // Source: APRS protocol
   // Which means /A=000XXXArduino APRS Tracker (29 characters)
 
-  char comment[] = "Arduino APRS Tracker";
+
   char temp[8];
   char APRS_comment[32];
 
