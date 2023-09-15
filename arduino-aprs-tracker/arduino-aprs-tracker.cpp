@@ -40,11 +40,11 @@ SoftwareSerial GPSSerial(GPS_RX_PIN, GPS_TX_PIN);
 // APRS settings
 char APRS_CALLSIGN[] = "KF0JOU";
 const int APRS_SSID = 7;
-char APRS_SYMBOL = '>'; // 'b' for Bike, '>' for Car
+char APRS_SYMBOL = '>'; // 'b' for Bike, '>' for Car, '[' for Person
 char comment[] = "DIY Arduino APRS Tracker"; // Comment to show
 char TOCALL[] = "APZMDM";
-const int PREAMBLE = 500; //350
-const int TAIL = 150; //50
+const int PREAMBLE = 350; //350
+const int TAIL = 50; //50
 #define REPORT_ALT //uncomment to report altitude. NOT GUARENTEED when #define NEO6M is disabled.
                     //Will only report if valid altitude is given
 
@@ -253,7 +253,7 @@ void locationUpdate()
     Serial.println("NOT Reporting Altitude");
   }
   #else
-  char APRS_comment[32] = "";
+  char APRS_comment[32]= "";
   #endif
 
   // Convert altitude in string and pad left
